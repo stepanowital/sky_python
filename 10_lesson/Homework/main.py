@@ -24,4 +24,4 @@ def page_skills(skill):
 	return get_by_skill(candidates, skill)
 
 
-app.run()
+app.run(debug=True)

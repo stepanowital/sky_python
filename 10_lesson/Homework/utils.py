@@ -13,7 +13,6 @@ def get_all(candidates):
 	"""
 	Показывает всех кандидатов
 	"""
-
 	result = "<br>"
 	for candidate in candidates:
 		result += "Имя кандидата - " + candidate['name'] + "<br>"
@@ -27,17 +26,20 @@ def get_by_pk(candidates, pk):
 	"""
 	Возвращает кандидата по pk
 	"""
-	candidate = candidates[pk-1]
+	if 0 < pk <= 7:
+		candidate = candidates[pk-1]
 
-	result = "<br>"
-	result += "Имя кандидата - " + candidate['name'] + "<br>"
-	result += "Позиция кандидата: " + candidate['position'] + "<br>"
-	result += "Навыки через запятую: " + candidate['skills'] + "<br>"
-	result += "<br>"
-	return f"""
-		<img src="{candidate['picture']}">
-		<pre> {result} </pre>
-		"""
+		result = "<br>"
+		result += "Имя кандидата - " + candidate['name'] + "<br>"
+		result += "Позиция кандидата: " + candidate['position'] + "<br>"
+		result += "Навыки через запятую: " + candidate['skills'] + "<br>"
+		result += "<br>"
+		return f"""
+			<img src="{candidate['picture']}">
+			<pre> {result} </pre>
+			"""
+	else:
+		return f"<pre> Кандидат не найден </pre>"
 
 
 def get_by_skill(candidates, skill):
@@ -53,4 +55,7 @@ def get_by_skill(candidates, skill):
 			result += "Позиция кандидата: " + candidate['position'] + "<br>"
 			result += "Навыки через запятую: " + candidate['skills'] + "<br>"
 			result += "<br>"
-	return f"<pre> {result} </pre>"
+	if result == "<br>":
+		return f"<pre> Кандидат не найден </pre>"
+	else:
+		return f"<pre> {result} </pre>"
