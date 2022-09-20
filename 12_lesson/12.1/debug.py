@@ -72,10 +72,86 @@ print("строка 5")
 
 
 
-line = "В аквариуме у Харитона четыре рака да три тритона."
+# line = "В аквариуме у Харитона четыре рака да три тритона."
+#
+# line.replace("р", "")
+#
+# count = line.count("р")
+#
+# a = 10
 
-line.replace("р", "")
 
-count = line.count("р")
+# class NotInRangeError(Exception):
+#
+# 	pass
+#
+#
+# def verbose_grade(grade_int):
+#
+#     if grade_int == 2:
+#         return "Плохо"
+#     elif grade_int == 3:
+#         return "Плохо"
+#     elif grade_int == 4:
+#         return "Хорошо"
+#     elif grade_int == 5:
+#         return "Отлично"
+#
+#     raise NotInRangeError("Value from 2 to 5 expected")
+#
+# # И сразу же вызовем ее
+#
+# verbose_grade(1)
 
-a = 10
+
+# grade_int = 8
+#
+#
+# class NotInRangeError(Exception):
+#
+#     def __init__(self, message=None):
+#         super().__init__(message)
+#
+#
+# def verbose_grade(grade_int):
+#
+#     if grade_int == 2:
+#         return "Плохо"
+#     elif grade_int == 3:
+#         return "Плохо"
+#     elif grade_int == 4:
+#         return "Хорошо"
+#     elif grade_int == 5:
+#         return "Отлично"
+#
+#     raise NotInRangeError("Value from 2 to 5 expected")
+#
+# # И сразу же вызовем с неверными данными
+#
+# try:
+#     verbose_grade(6)
+# except NotInRangeError:
+#     print("Значение вне диапазона разрешенных значений")
+
+
+def verbose_month(month_number):
+    months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ]
+
+    if month_number < 1 or month_number > 12:
+        raise ValueError("1 to 12 Expected")
+    return months[month_number - 1]
+
+print(verbose_month(122))
